@@ -1,0 +1,72 @@
+html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.hand {
+    font-size: 4rem;
+    padding: 5px 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+button {
+    font-size: 1.5rem;
+    border: 2px solid green;
+    color: green;
+    background: none;
+}
+
+button.hand:hover {
+    font-size: 4.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: 'Architects Daughter', 'Shadows Into Light', 'Shizuru', cursive;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+#options, #choices, #actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+#options {
+    height: 120px;
+    
+}
+
+#choices {
+    margin-top: 100px;
+    font-family: 'Shizuru', cursive;
+    font-size: 3rem;
+}
+
+#streak {
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+.win, .loss {
+    border-radius: 20px;
+}
+
+.win {
+    background-color: lightgreen;
+}
+
+.loss {
+    background-color: rgb(255, 158, 158);
+}
