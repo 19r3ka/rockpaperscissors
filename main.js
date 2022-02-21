@@ -1,5 +1,5 @@
 let results = [];
-let streak = "";
+let score = { win: 0, tie: 0, loss: 0 };
 
 function randomChoice() {
   const choices = ["rock", "paper", "scissors"];
@@ -7,16 +7,26 @@ function randomChoice() {
   return choices[index];
 }
 
-function setDom(result = "tie", myChoice = "❔", aiChoice = "❔", results) {
+function setDom(
+  result = "tie",
+  myChoice = "❔",
+  aiChoice = "❔",
+  outcomes = score
+) {
   const myHand = document.getElementById("myChoice");
   const aiHand = document.getElementById("aiChoice");
   const handBox = document.getElementById("choices");
-  const streakBox = document.getElementById("streak");
+  const wins = document.getElementById("wins");
+  const ties = document.getElementById("ties");
+  const losses = document.getElementById("losses");
 
   handBox.className = result;
   myHand.innerText = myChoice;
   aiHand.innerText = aiChoice;
-  if (!!results) streakBox.innerText = results;
+
+  wins.innerText = outcomes.win;
+  ties.innerText = outcomes.tie;
+  losses.innerText = outcomes.loss;
 }
 
 function reactToClick(e) {
@@ -34,11 +44,14 @@ function reactToClick(e) {
     result = aiChoice === choices[myChoice].weakness ? "loss" : "win";
   }
 
+  score[result]++;
+  console.log(score);
+
   // update the history of hands played
   results = [[result, myChoice, aiChoice], ...results];
-  streak = streak + (result === "tie" ? "-" : result[0]);
+  // streak = streak + (result === "tie" ? "-" : result[0]);
 
-  setDom(result, choices[myChoice].symbol, choices[aiChoice].symbol, streak);
+  setDom(result, choices[myChoice].symbol, choices[aiChoice].symbol, score);
   setTimeout(setDom, 1000);
 }
 
